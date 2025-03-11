@@ -1,5 +1,8 @@
 <?php require_once("../config/conn.php") ?>
 <?php require_once("../config/config.php") ?>
+<?php
+session_start()
+?>
 
 <!DOCTYPE html>
 <html lang="en">

@@ -1,6 +1,10 @@
 <?php require_once("config/conn.php") ?>
 <?php require_once("config/config.php") ?>
 
+<?php
+session_start()
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,6 +34,7 @@
             </div>
             <img src="<?php echo $base_url; ?>/img/logo-big-fill-only.png" alt="logoFill" id="logoFill">
         </div>
+
     </main>
     <?php require_once('footer.php'); ?>
 
