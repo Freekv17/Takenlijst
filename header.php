@@ -14,9 +14,7 @@
 <body>
     <header>
         <div class="wrapper">
-            <a href="index.php">
-                <img src="./img/logo-big-v4.png" alt="logoHeader" id="logoHeader">
-            </a>
+            <a href="index.php"><h1><span>Developer</span>Land</h1></a>
             <nav>
                 <a href="./tasks/index.php">Takenlijst</a>
             </nav>

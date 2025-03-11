@@ -16,6 +16,14 @@
     <?php require_once('header.php'); ?>
     <main>
         <div class="wrapper">
+            <div class="landingPageInfo">
+                <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ullamcorper justo at dui dignissim,
+                    sit amet auctor eros tempor. Pellentesque risus diam, lacinia et feugiat at, rhoncus eget sem.
+                    Pellentesque tincidunt leo vitae pulvinar luctus. Donec pharetra ligula quis quam fermentum auctor.
+                    Cras ac dui eu lorem pretium porta sed in lorem. Fusce quis posuere felis. Aliquam ac neque posuere,
+                    dapibus metus eget, aliquet elit. Vestibulum iaculis egestas nibh, nec pellentesque nunc tincidunt
+                    ut.</h3>
+            </div>
             <img src="./img/logo-big-fill-only.png" alt="logoFill" id="logoFill">
         </div>
     </main>
