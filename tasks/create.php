@@ -24,6 +24,7 @@ session_start()
     <main></main>
 
 
+    <?php require_once("../footer.php"); ?>
 
 </body>
 
