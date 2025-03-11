@@ -15,7 +15,7 @@
     <footer>
         <div class="wrapper">
             <a href="index.php">
-                <img src="/img/logo-big-v2.png" alt="logoV2" id="logoV2">
+                <img src="./img/logo-big-v2.png" alt="logoV2" id="logoV2">
             </a>
             <div class="extraInfo">
                 <div class="extraInfoLeft">

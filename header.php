@@ -15,10 +15,10 @@
     <header>
         <div class="wrapper">
             <a href="index.php">
-                <img src="/img/logo-big-v4.png" alt="logoHeader" id="logoHeader">
+                <img src="./img/logo-big-v4.png" alt="logoHeader" id="logoHeader">
             </a>
             <nav>
-                <a href="/tasks/index.php">Takenlijst</a>
+                <a href="./tasks/index.php">Takenlijst</a>
             </nav>
         </div>
     </header>
