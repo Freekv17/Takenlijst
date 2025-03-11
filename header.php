@@ -1,27 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Takenlijst DeveloperLand</title>
-    <link rel="stylesheet" href="public/style.css" type="text/css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-</head>
-
-<body>
-    <header>
-        <div class="wrapper">
-            <a href="index.php">
-                <img src="./img/logo-big-v4.png" alt="logoHeader" id="logoHeader">
-            </a>
-            <nav>
-                <a href="./tasks/index.php">Takenlijst</a>
-            </nav>
-        </div>
-    </header>
-</body>
-
-</html>
+<header>
+    <div class="wrapper">
+        <a href="<?php echo $base_url; ?>index.php">
+            <img src="<?php echo $base_url; ?>/img/logo-big-v4.png" alt="logoHeader" id="logoHeader">
+        </a>
+        <nav>
+            <a href="<?php echo $base_url; ?>/tasks/create.php">Takenlijst</a>
+        </nav>
+    </div>
+</header>

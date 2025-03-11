@@ -1,3 +1,7 @@
+<?php require_once("config/conn.php") ?>
+<?php require_once("config/config.php") ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +20,7 @@
     <?php require_once('header.php'); ?>
     <main>
         <div class="wrapper">
-            <img src="./img/logo-big-fill-only.png" alt="logoFill" id="logoFill">
+            <img src="<?php echo $base_url; ?>/img/logo-big-fill-only.png" alt="logoFill" id="logoFill">
         </div>
     </main>
     <?php require_once('footer.php'); ?>

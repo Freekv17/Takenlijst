@@ -5,4 +5,4 @@ $dbName = 'tasks';
 $dbUser = 'root';
 $dbPass = '';
 
-$base_url = 'http://localhost/Ta';
+$base_url = 'http://localhost/Takenlijst/';
