@@ -12,16 +12,17 @@ body {
     font-family: "Bebas Neue", sans-serif;
     font-weight: 400;
     font-style: normal;
-    height: 1100px;
+    height: 1000px;
+    background-color: white;
 }
 
 /*header styling*/
 
 header {
     height: 15%;
-    background-color: black;
-    border-bottom: 2px solid #e1e1e1;
-    box-shadow: 0 .25rem .5rem 0 rgba(0, 0, 0, .05);
+    border-bottom: 5px solid #24ac64;
+    box-shadow: 0 .25rem .5rem 0 rgba(0, 166, 255, 0.05);
+    background-color:#1D3354;
 }
 
 header .wrapper {
@@ -39,20 +40,28 @@ header img {
 header a {
     color: white;
     text-decoration: none;
-    font-size: 30px;
+    font-size: 35px;
 }
 
-header a:hover {
+nav a:hover {
     text-decoration: underline;
     text-underline-offset: 5px;
-    color: #24ac64;
+    color: #2c84ec;
 }
 
+h1, h1:hover{
+    font-size: 35px;
+    color:#2c84ec;
+}
+
+
+span, span:hover{
+    color:#24ac64;
+}
 /*index.php styling*/
 
 main {
     height: 70%;
-    background-color: white;
 }
 
 main .wrapper {
@@ -62,11 +71,19 @@ main .wrapper {
     justify-content: center;
 }
 
+.landingPageInfo{
+    font-family: 'Courier New', Courier, monospace;
+    color:rgb(46, 46, 46);
+}
+
+main img{
+    height: 50%;
+}
 /*footer styling*/
 
 footer {
+    background-color:#1D3354;
     height: 15%;
-    background-color: black;
 }
 
 footer .wrapper {
