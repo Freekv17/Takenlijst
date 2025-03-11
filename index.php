@@ -16,7 +16,7 @@
     <?php require_once('header.php'); ?>
     <main>
         <div class="wrapper">
-            <img src="/img/logo-big-fill-only.png" alt="logoFill" id="logoFill">
+            <img src="./img/logo-big-fill-only.png" alt="logoFill" id="logoFill">
         </div>
     </main>
     <?php require_once('footer.php'); ?>
