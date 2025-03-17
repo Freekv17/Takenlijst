@@ -22,7 +22,7 @@ header {
     height: 15%;
     border-bottom: 5px solid #24ac64;
     box-shadow: 0 .25rem .5rem 0 rgba(0, 166, 255, 0.05);
-    background-color:#1D3354;
+    background-color: #1D3354;
 }
 
 header .wrapper {
@@ -41,6 +41,7 @@ header a {
     color: white;
     text-decoration: none;
     font-size: 35px;
+    padding-right: 50px;
 }
 
 nav a:hover {
@@ -49,15 +50,18 @@ nav a:hover {
     color: #2c84ec;
 }
 
-h1, h1:hover{
+h1,
+h1:hover {
     font-size: 35px;
-    color:#2c84ec;
+    color: #2c84ec;
 }
 
 
-span, span:hover{
-    color:#24ac64;
+span,
+span:hover {
+    color: #24ac64;
 }
+
 /*index.php styling*/
 
 main {
@@ -71,18 +75,19 @@ main .wrapper {
     justify-content: center;
 }
 
-.landingPageInfo{
+.landingPageInfo {
     font-family: 'Courier New', Courier, monospace;
-    color:rgb(46, 46, 46);
+    color: rgb(46, 46, 46);
 }
 
-main img{
+main img {
     height: 50%;
 }
+
 /*footer styling*/
 
 footer {
-    background-color:#1D3354;
+    background-color: #1D3354;
     height: 15%;
 }
 
@@ -98,7 +103,7 @@ footer img {
     height: 100px;
 }
 
-.extraInfo{
+.extraInfo {
     width: 60%;
     display: flex;
     flex-direction: row;
