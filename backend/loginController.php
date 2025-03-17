@@ -12,7 +12,9 @@ require "../../Takenlijst/config/conn.php";
 
 $query = "SELECT * FROM users WHERE fullname= :fullname";
 $statement = $conn->prepare($query);
-$statement->execute([":fullname" => $fullName]);
+$statement->execute([
+    ":fullname" => $fullName
+]);
 $user = $statement->fetch(PDO::FETCH_ASSOC);
 
 

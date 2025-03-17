@@ -22,6 +22,13 @@ session_start();
     <main>
 
         <div class="wrapper">
+
+            <?php
+            if (isset($_GET['msg'])) {
+                echo "<div class='msg'>" . $_GET['msg'] . "</div>";
+            }
+            ?>
+
             <form action="./backend/loginController.php" method="post">
                 <div class="form-group">
                     <label for="fullname">Volledige naam: </label>

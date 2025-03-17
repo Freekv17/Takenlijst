@@ -111,3 +111,12 @@ footer img {
     justify-content: space-evenly;
     color: white;
 }
+
+
+.msg {
+    margin: 1rem 0;
+    padding: 1rem;
+    background-color: #226d89;
+    border-radius: 4px;
+    color: white;
+}
