@@ -1,13 +1,11 @@
 <?php require_once("../config/conn.php"); ?>
 <?php require_once("../config/config.php"); ?>
-<?php
-session_start()
-    ?>
+<?php session_start() ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
-<?php require_once 'public/resources/views/components/head.php'; ?>
+<?php require_once '../public/resources/views/components/head.php'; ?>
 
 <body>
 
