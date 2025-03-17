@@ -29,7 +29,9 @@ session_start()
     <?php require_once("../header.php") ?>
 
     <main>
-        <a href="<?php echo $base_url; ?>/tasks/done.php">Tasks done</a>
+        <a href="<?php echo $base_url ?>/tasks/create.php">Maak nieuwe taak</a>
+        <a href="<?php echo $base_url ?>/tasks/done.php">Taken die klaar zijn</a>
+
     </main>
 
 

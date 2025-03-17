@@ -1,23 +1,36 @@
 <?php
 
 session_start();
+$action = $_POST['action'];
 
 require "../../Takenlijst/config/conn.php";
 
-$afdeling = $_POST['department'] ?? null;
-$status = "TODO";
-$datetime = (new DateTime())->format('Y-m-d H:i:s');
 
 
-$query = "INSERT INTO takenlijst (afdeling, status, datetime) VALUES (:afdeling, :status, :datetime)";
-$statement = $conn->prepare($query);
-$statement->execute([
-    "afdeling" => $afdeling,
-    "status" => $status,
-    "datetime" => $datetime
-]);
-$tasks = $statement->fetch(PDO::FETCH_ASSOC);
+if ($action === "create") {
+    $afdeling = $_POST['department'] ?? null;
+    $status = "TODO";
+    $datetime = (new DateTime())->format('Y-m-d H:i:s');
+    $beschrijving = $_POST['beschrijving'] ?? null;
 
 
+    $query = "INSERT INTO takenlijst (afdeling, beschrijving, status, datetime) VALUES (:afdeling, :beschrijving, :status, :datetime)";
+    $statement = $conn->prepare($query);
+    $statement->execute([
+        "afdeling" => $afdeling,
+        "beschrijving" => $beschrijving,
+        "status" => $status,
+        "datetime" => $datetime
+    ]);
+    $tasks = $statement->fetch(PDO::FETCH_ASSOC);
 
-header("location: ../index.php");
+    header("location: ../index.php");
+    exit();
+}
+
+
+if ($action === "edit") {
+}
+
+if ($action === "delete") {
+}

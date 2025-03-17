@@ -33,6 +33,8 @@ session_start()
 
         <div class="wrapper">
             <form action="../backend/tasksController.php" method="POST">
+                <input type="hidden" name="action" value="create">
+
                 <div class="form-group">
                     <label for="titel">Titel: </label>
                     <input type="text" name="title" id="title">
