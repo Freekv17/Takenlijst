@@ -1,21 +1,11 @@
 <?php require_once("../config/conn.php"); ?>
 <?php require_once("../config/config.php"); ?>
-<?php
-session_start()
-?>
+<?php session_start() ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Developerland Takenlijst</title>
-    <link rel="stylesheet" href="<?php echo $base_url; ?>/public/style.css" type="text/css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-</head>
+<?php require_once '../public/resources/views/components/head.php'; ?>
 
 <body>
 
@@ -27,7 +17,7 @@ session_start()
     }
     ?>
 
-    <?php require_once("../header.php"); ?>
+    <?php require_once 'public/resources/views/components/header.php'; ?>
 
     <main>
 
@@ -63,7 +53,7 @@ session_start()
     </main>
 
 
-    <?php require_once("../footer.php"); ?>
+    <?php require_once 'public/resources/views/components/footer.php'; ?>
 
 </body>
 
