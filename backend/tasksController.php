@@ -12,12 +12,14 @@ if ($action === "create") {
     $status = "TODO";
     $datetime = (new DateTime())->format('Y-m-d H:i:s');
     $beschrijving = $_POST['beschrijving'] ?? null;
+    $userID = $_SESSION['user_id'];
 
 
-    $query = "INSERT INTO takenlijst (afdeling, beschrijving, status, datetime) VALUES (:afdeling, :beschrijving, :status, :datetime)";
+    $query = "INSERT INTO takenlijst (afdeling, user_id, beschrijving, status, datetime) VALUES (:afdeling, :user_id, :beschrijving, :status, :datetime)";
     $statement = $conn->prepare($query);
     $statement->execute([
         "afdeling" => $afdeling,
+        "user_id" => $userID,
         "beschrijving" => $beschrijving,
         "status" => $status,
         "datetime" => $datetime
