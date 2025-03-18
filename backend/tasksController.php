@@ -24,7 +24,7 @@ if ($action === "create") {
     ]);
     $tasks = $statement->fetch(PDO::FETCH_ASSOC);
 
-    header("location: ../index.php");
+    header("location: ../tasks/index.php");
     exit();
 }
 

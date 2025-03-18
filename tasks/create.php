@@ -17,7 +17,8 @@
     }
     ?>
 
-    <?php require_once 'public/resources/views/components/header.php'; ?>
+
+    <?php require_once "../public/resources/views/components/header.php"; ?>
 
     <main>
 
@@ -53,7 +54,7 @@
     </main>
 
 
-    <?php require_once 'public/resources/views/components/footer.php'; ?>
+    <?php require_once '../public/resources/views/components/footer.php'; ?>
 
 </body>
 

@@ -1,6 +1,6 @@
 <header>
     <div class="wrapper">
-        <a href="index.php">
+        <a href="<?php echo $base_url ?>/index.php">
             <h1><span>DEVELOPER</span>LAND</h1>
         </a>
         <nav>

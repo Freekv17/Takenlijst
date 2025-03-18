@@ -2,11 +2,12 @@
 
 session_start();
 
+require "../../Takenlijst/config/conn.php";
+
+
 if ($_POST['action'] === "login") {
     $email = $_POST['email'];
     $password = $_POST['password'];
-
-    require "../../Takenlijst/config/conn.php";
 
     $query = "SELECT * FROM users WHERE email= :email";
     $statement = $conn->prepare($query);
@@ -28,14 +29,12 @@ if ($_POST['action'] === "login") {
 
     header("location: ../index.php");
 } elseif ($_POST['action'] === "register") {
-
-    require "../../Takenlijst/config/conn.php";
-
     $fullName = $_POST['fullname'];
     $email = $_POST['email'];
     $password = $_POST['password'];
-
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+
 
     $query = "INSERT INTO users (fullname, email, password) VALUES (:fullname, :email, :password)";
     $statement = $conn->prepare($query);
@@ -45,5 +44,5 @@ if ($_POST['action'] === "login") {
         ":password" => $hashedPassword
     ]);
 
-    header("location: ../index.php");
+    header("location: ../login.php?msg=account gemaakt!");
 }
