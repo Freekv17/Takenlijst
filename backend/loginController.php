@@ -10,10 +10,11 @@ $password = $_POST['password'];
 require "../../Takenlijst/config/conn.php";
 
 
-$query = "SELECT * FROM users WHERE fullname= :fullname";
+$query = "SELECT * FROM users WHERE fullname = :fullname AND email = :email";
 $statement = $conn->prepare($query);
 $statement->execute([
-    ":fullname" => $fullName
+    ":fullname" => $fullName,
+    ":email" => $email
 ]);
 $user = $statement->fetch(PDO::FETCH_ASSOC);
 
