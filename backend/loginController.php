@@ -35,12 +35,14 @@ if ($_POST['action'] === "login") {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
     $query = "INSERT INTO users (fullname, email, password) VALUES (:fullname, :email, :password)";
     $statement = $conn->prepare($query);
     $statement->execute([
         ":fullname" => $fullName,
         ":email" => $email,
-        ":password" => $password
+        ":password" => $hashedPassword
     ]);
 
     header("location: ../index.php");
