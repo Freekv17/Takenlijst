@@ -28,13 +28,23 @@ if ($_POST['action'] === "login") {
     $_SESSION['user_name'] = $user['fullname'];
 
     header("location: ../index.php");
-} elseif ($_POST['action'] === "register") {
+}
+
+if ($_POST['action'] === "register") {
     $fullName = $_POST['fullname'];
     $email = $_POST['email'];
     $password = $_POST['password'];
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
+    $checkEmailQuery = "SELECT * FROM users WHERE email = :email";
+    $checkEmailStmt = $conn->prepare($checkEmailQuery);
+    $checkEmailStmt->execute([
+        ":email" => $email
+    ]);
 
+    if ($checkEmailStmt->rowCount() > 0) {
+        die("Email bestaat al. Gebruik een ander emailadres.");
+    }
 
     $query = "INSERT INTO users (fullname, email, password) VALUES (:fullname, :email, :password)";
     $statement = $conn->prepare($query);
@@ -46,3 +56,4 @@ if ($_POST['action'] === "login") {
 
     header("location: ../login.php?msg=account gemaakt!");
 }
+
