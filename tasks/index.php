@@ -2,7 +2,7 @@
 <?php require_once("../config/config.php") ?>
 <?php
 session_start()
-    ?>
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -59,7 +59,7 @@ session_start()
                                 <td><?php echo $item['afdeling']; ?></td>
                                 <td><?php echo $item['beschrijving']; ?></td>
                                 <td><?php echo $item['status']; ?></td>
-                                <td><?php echo $item['deadline']; ?></td>
+                                <td><?php echo $item['deadline'] ? $item['deadline'] : 'geen deadline'; ?></td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
