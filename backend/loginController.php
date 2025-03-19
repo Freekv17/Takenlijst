@@ -21,7 +21,9 @@ if ($_POST['action'] === "login") {
     }
 
     if (!password_verify($password, $user['password'])) {
-        die("Wachtwoord bestaat niet");
+        header("location: ../login.php?msg=Wachtwoord bestaat niet!");
+
+        die();
     }
 
     $_SESSION['user_id'] = $user['id'];
@@ -43,7 +45,8 @@ if ($_POST['action'] === "register") {
     ]);
 
     if ($checkEmailStmt->rowCount() > 0) {
-        die("Email bestaat al. Gebruik een ander emailadres.");
+        header("location: ../login.php?msg=Email bestaat al probeer een andere!");
+        die();
     }
 
     $query = "INSERT INTO users (fullname, email, password) VALUES (:fullname, :email, :password)";
@@ -56,4 +59,3 @@ if ($_POST['action'] === "register") {
 
     header("location: ../login.php?msg=account gemaakt!");
 }
-
