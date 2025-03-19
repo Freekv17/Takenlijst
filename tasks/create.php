@@ -35,6 +35,10 @@
                     <input type="text" name="beschrijving" id="beschrijving">
                 </div>
                 <div class="form-group">
+                    <label for="deadline">Deadline:</label>
+                    <input type="date" name="deadline" id="deadline">
+                </div>
+                <div class="form-group">
                     <label for="afdeling">Afdeling: </label>
                     <select name="department" id="department">
                         <option value="personeel">personeel</option>
