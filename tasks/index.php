@@ -2,7 +2,7 @@
 <?php require_once("../config/config.php") ?>
 <?php
 session_start()
-?>
+    ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,9 +23,50 @@ session_start()
     <?php require_once "../public/resources/views/components/header.php" ?>
 
     <main>
-        <a href="<?php echo $base_url ?>/tasks/create.php">Maak nieuwe taak</a>
-        <a href="<?php echo $base_url ?>/tasks/done.php">Taken die klaar zijn</a>
+        <div class="wrapper">
+            <div class="filterBar">
+                <a href="<?php echo $base_url ?>/tasks/create.php">Maak nieuwe taak</a>
+                <a href="<?php echo $base_url ?>/tasks/done.php">Afgeronde taken</a>
+            </div>
 
+            <?php
+
+            require("../config/conn.php");
+
+            $userID = $_SESSION['user_id'];
+
+            $query = "SELECT * FROM takenlijst";
+
+            $statement = $conn->prepare($query);
+            $statement->execute();
+
+            $table = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+            ?>
+            <div class="tables">
+                <table>
+                    <tr>
+                        <th>Title</th>
+                        <th>Afdeling</th>
+                        <th>Beschrijving</th>
+                        <th>Status</th>
+                        <th>Deadline</th>
+                    </tr>
+                    <tbody>
+                        <?php foreach ($table as $item): ?>
+                            <tr>
+                                <td><?php echo $item['title']; ?></td>
+                                <td><?php echo $item['afdeling']; ?></td>
+                                <td><?php echo $item['beschrijving']; ?></td>
+                                <td><?php echo $item['status']; ?></td>
+                                <td><?php echo $item['deadline']; ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
     </main>
 
 

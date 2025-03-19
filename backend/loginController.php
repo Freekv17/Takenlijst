@@ -27,7 +27,7 @@ if ($_POST['action'] === "login") {
     $_SESSION['user_id'] = $user['id'];
     $_SESSION['user_name'] = $user['fullname'];
 
-    header("location: ../index.php");
+    header("location: ../tasks/index.php");
 }
 
 if ($_POST['action'] === "register") {
