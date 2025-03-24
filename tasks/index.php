@@ -50,64 +50,62 @@ session_start()
                 <a href="<?php echo $base_url ?>/tasks/create.php">Maak nieuwe taak</a>
                 <a href="<?php echo $base_url ?>/tasks/done.php">Afgeronde taken</a>
             </div>
+
             <div class="tables">
                 <table class="table todo">
-                    <tr>
-                        <th>Title</th>
-                        <th>Afdeling</th>
-                        <th>Beschrijving</th>
-                        <th>Deadline</th>
-                    </tr>
                     <tbody>
                         <?php foreach ($tableTodo as $item): ?>
                             <tr>
-                                <td><?php echo $item['title']; ?></td>
-                                <td><?php echo $item['afdeling']; ?></td>
-                                <td><?php echo $item['beschrijving']; ?></td>
-                                <td><?php echo $item['deadline'] ? $item['deadline'] : 'geen deadline'; ?></td>
+                                <td>
+                                    <div class="taskTop">
+                                        <h2><?php echo $item['title']; ?></h2>
+                                        <p><?php echo $item['deadline'] ? $item['deadline'] : ''; ?></p>
+                                    </div>
+                                    <p class="department"><?php echo $item['afdeling']; ?></p>
+                                    <div class="taskDescription">
+                                        <?php echo $item['beschrijving']; ?>
+                                    </div>
+                                </td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
                 </table>
 
                 <table class="table doing">
-                    <tr>
-                        <th>Title</th>
-                        <th>Afdeling</th>
-                        <th>Beschrijving</th>
-                        <th>Deadline</th>
-                    </tr>
                     <tbody>
                         <?php foreach ($tableDoing as $item): ?>
                             <tr>
-                                <td><?php echo $item['title']; ?></td>
-                                <td><?php echo $item['afdeling']; ?></td>
-                                <td><?php echo $item['beschrijving']; ?></td>
-                                <td><?php echo $item['deadline'] ? $item['deadline'] : 'geen deadline'; ?></td>
+                                <td>
+                                    <div class="taskTop">
+                                        <h2><?php echo $item['title']; ?></h2>
+                                        <p><?php echo $item['deadline'] ? $item['deadline'] : ''; ?></p>
+                                    </div>
+                                    <p class="department"><?php echo $item['afdeling']; ?></p>
+                                    <p class="taskDescription"><?php echo $item['beschrijving']; ?></p>
+                                </td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
                 </table>
 
                 <table class="table done">
-                    <tr>
-                        <th>Title</th>
-                        <th>Afdeling</th>
-                        <th>Beschrijving</th>
-                        <th>Deadline</th>
-                    </tr>
                     <tbody>
                         <?php foreach ($tableDone as $item): ?>
                             <tr>
-                                <td><?php echo $item['title']; ?></td>
-                                <td><?php echo $item['afdeling']; ?></td>
-                                <td><?php echo $item['beschrijving']; ?></td>
-                                <td><?php echo $item['deadline'] ? $item['deadline'] : 'geen deadline'; ?></td>
+                                <td>
+                                    <div class="taskTop">
+                                        <h2><?php echo $item['title']; ?></h2>
+                                        <p><?php echo $item['deadline'] ? $item['deadline'] : ''; ?></p>
+                                    </div>
+                                    <p class="department"><?php echo $item['afdeling']; ?></p>
+                                    <div class="taskDescription">
+                                        <?php echo $item['beschrijving']; ?>
+                                    </div>
+                                </td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
                 </table>
-
             </div>
         </div>
     </main>

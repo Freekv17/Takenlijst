@@ -41,6 +41,7 @@
                 <div class="form-group">
                     <label for="afdeling">Afdeling: </label>
                     <select name="department" id="department">
+                        <option value="">- Kies een afdeling -</option>
                         <option value="personeel">personeel</option>
                         <option value="horeca">horeca</option>
                         <option value="techniek">techniek</option>
@@ -51,7 +52,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <input type="submit" value="Maak task!">
+                    <input type="submit" value="Maak taak!">
                 </div>
             </form>
         </div>
