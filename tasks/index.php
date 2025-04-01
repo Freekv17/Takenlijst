@@ -57,13 +57,15 @@ session_start()
                         <?php foreach ($tableTodo as $item): ?>
                             <tr>
                                 <td>
-                                    <div class="taskTop">
-                                        <h2><?php echo $item['title']; ?></h2>
+                                    <div class="deadline">
+                                        <p>Deadline </p>
                                         <p><?php echo $item['deadline'] ? $item['deadline'] : ''; ?></p>
                                     </div>
-                                    <p class="department"><?php echo $item['afdeling']; ?></p>
-                                    <div class="taskDescription">
-                                        <?php echo $item['beschrijving']; ?>
+
+                                    <div class="taskCard">
+                                        <h2><?php echo $item['title']; ?></h2>
+                                        <p class="description"><?php echo $item['beschrijving']; ?></p>
+                                        <p class="department"><?php echo $item['afdeling']; ?></p>
                                     </div>
                                 </td>
                             </tr>
@@ -76,12 +78,16 @@ session_start()
                         <?php foreach ($tableDoing as $item): ?>
                             <tr>
                                 <td>
-                                    <div class="taskTop">
-                                        <h2><?php echo $item['title']; ?></h2>
+                                    <div class="deadline">
+                                        <p>Deadline </p>
                                         <p><?php echo $item['deadline'] ? $item['deadline'] : ''; ?></p>
                                     </div>
-                                    <p class="department"><?php echo $item['afdeling']; ?></p>
-                                    <p class="taskDescription"><?php echo $item['beschrijving']; ?></p>
+
+                                    <div class="taskCard">
+                                        <h2><?php echo $item['title']; ?></h2>
+                                        <p class="description"><?php echo $item['beschrijving']; ?></p>
+                                        <p class="department"><?php echo $item['afdeling']; ?></p>
+                                    </div>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -93,13 +99,15 @@ session_start()
                         <?php foreach ($tableDone as $item): ?>
                             <tr>
                                 <td>
-                                    <div class="taskTop">
-                                        <h2><?php echo $item['title']; ?></h2>
+                                    <div class="deadline">
+                                        <p>Deadline </p>
                                         <p><?php echo $item['deadline'] ? $item['deadline'] : ''; ?></p>
                                     </div>
-                                    <p class="department"><?php echo $item['afdeling']; ?></p>
-                                    <div class="taskDescription">
-                                        <?php echo $item['beschrijving']; ?>
+
+                                    <div class="taskCard">
+                                        <h2><?php echo $item['title']; ?></h2>
+                                        <p class="description"><?php echo $item['beschrijving']; ?></p>
+                                        <p class="department"><?php echo $item['afdeling']; ?></p>
                                     </div>
                                 </td>
                             </tr>
