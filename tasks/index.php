@@ -2,7 +2,7 @@
 <?php require_once("../config/config.php") ?>
 <?php
 session_start()
-    ?>
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -26,20 +26,27 @@ session_start()
 
     $userID = $_SESSION['user_id'];
 
-    $queryTodo = "SELECT * FROM takenlijst WHERE status = 'todo'";
-    $queryDoing = "SELECT * FROM takenlijst WHERE status = 'doing'";
-    $queryDone = "SELECT * FROM takenlijst WHERE status = 'done'";
+    $queryTodo = "SELECT * FROM takenlijst WHERE status = 'todo' AND user_id = :user_id";
+    $queryDoing = "SELECT * FROM takenlijst WHERE status = 'doing' AND user_id = :user_id";
+    $queryDone = "SELECT * FROM takenlijst WHERE status = 'done' AND user_id = :user_id";
 
     $statementTodo = $conn->prepare($queryTodo);
-    $statementTodo->execute();
+    $statementTodo->execute([
+        ':user_id' => $userID
+    ]);
+
     $tableTodo = $statementTodo->fetchAll(PDO::FETCH_ASSOC);
 
     $statementDoing = $conn->prepare($queryDoing);
-    $statementDoing->execute();
+    $statementDoing->execute([
+        ':user_id' => $userID
+    ]);
     $tableDoing = $statementDoing->fetchAll(PDO::FETCH_ASSOC);
 
     $statementDone = $conn->prepare($queryDone);
-    $statementDone->execute();
+    $statementDone->execute([
+        ':user_id' => $userID
+    ]);
     $tableDone = $statementDone->fetchAll(PDO::FETCH_ASSOC);
 
     ?>
