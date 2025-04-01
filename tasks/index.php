@@ -2,7 +2,7 @@
 <?php require_once("../config/config.php") ?>
 <?php
 session_start()
-?>
+    ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -54,8 +54,11 @@ session_start()
     <main class="tasksOverview">
         <div class="wrapper">
             <div class="filterBar">
-                <a href="<?php echo $base_url ?>/tasks/create.php"><i class="fa-solid fa-circle-plus"></i>Maak nieuwe taak</a>
-                <a href="<?php echo $base_url ?>/tasks/done.php">Afgeronde taken</a>
+                <a href="<?php echo $base_url ?>/tasks/create.php"><i class="fa-solid fa-circle-plus plus"></i>Maak
+                    nieuwe
+                    taak</a>
+                <a href="<?php echo $base_url ?>/tasks/done.php">Afgeronde taken<i
+                        class="fa-solid fa-circle-arrow-right arrow"></i></a>
             </div>
 
             <div class="tables">
@@ -79,6 +82,7 @@ session_start()
                                         <p class="description"><?php echo $item['beschrijving']; ?></p>
                                         <p class="department"><?php echo $item['afdeling']; ?></p>
                                     </div>
+                                    <a href="create.php"><i class="fa-solid fa-pen"></i></a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -105,6 +109,8 @@ session_start()
                                         <p class="description"><?php echo $item['beschrijving']; ?></p>
                                         <p class="department"><?php echo $item['afdeling']; ?></p>
                                     </div>
+                                    <a href="create.php"><i class="fa-solid fa-pen"></i></a>
+
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -131,6 +137,8 @@ session_start()
                                         <p class="description"><?php echo $item['beschrijving']; ?></p>
                                         <p class="department"><?php echo $item['afdeling']; ?></p>
                                     </div>
+                                    <a href="create.php"><i class="fa-solid fa-pen"></i></a>
+
                                 </td>
                             </tr>
                         <?php endforeach; ?>
