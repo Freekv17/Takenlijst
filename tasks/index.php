@@ -55,8 +55,7 @@ session_start()
         <div class="wrapper">
             <div class="filterBar">
                 <a href="<?php echo $base_url ?>/tasks/create.php"><i class="fa-solid fa-circle-plus plus"></i>Maak
-                    nieuwe
-                    taak</a>
+                    nieuwe taak</a>
                 <a href="<?php echo $base_url ?>/tasks/done.php">Afgeronde taken<i
                         class="fa-solid fa-circle-arrow-right arrow"></i></a>
             </div>
