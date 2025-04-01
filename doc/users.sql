@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 17, 2025 at 08:26 AM
--- Server version: 8.0.30
--- PHP Version: 8.1.10
+-- Gegenereerd op: 01 apr 2025 om 07:04
+-- Serverversie: 8.0.30
+-- PHP-versie: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Tabelstructuur voor tabel `users`
 --
 
 CREATE TABLE `users` (
@@ -35,31 +35,32 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `users`
+-- Gegevens worden geëxporteerd voor tabel `users`
 --
 
 INSERT INTO `users` (`email`, `password`, `fullname`, `id`) VALUES
-('test@gmail.com', '$2y$10$VzmyNAYE11zPscL2nd/OyuAaGVQNFM38OBQ4ea9ClVyJTrycbH24G', 'User name', 1);
+('test@gmail.com', '$2y$10$VzmyNAYE11zPscL2nd/OyuAaGVQNFM38OBQ4ea9ClVyJTrycbH24G', 'User name', 1),
+('test.test@devland.com', '$2y$10$MxyQPedMv04Vs6TxeHxsG.mLOwkydsoGIicGvtEzja.LRQB5m42hW', 'tessie test', 2);
 
 --
--- Indexes for dumped tables
+-- Indexen voor geëxporteerde tabellen
 --
 
 --
--- Indexes for table `users`
+-- Indexen voor tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT voor geëxporteerde tabellen
 --
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT voor een tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

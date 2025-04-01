@@ -47,12 +47,17 @@ session_start()
     <main class="tasksOverview">
         <div class="wrapper">
             <div class="filterBar">
-                <a href="<?php echo $base_url ?>/tasks/create.php">Maak nieuwe taak</a>
+                <a href="<?php echo $base_url ?>/tasks/create.php"><i class="fa-solid fa-circle-plus"></i>Maak nieuwe taak</a>
                 <a href="<?php echo $base_url ?>/tasks/done.php">Afgeronde taken</a>
             </div>
 
             <div class="tables">
                 <table class="table todo">
+                    <thead>
+                        <tr>
+                            <th>To do</th>
+                        </tr>
+                    </thead>
                     <tbody>
                         <?php foreach ($tableTodo as $item): ?>
                             <tr>
@@ -74,6 +79,11 @@ session_start()
                 </table>
 
                 <table class="table doing">
+                    <thead>
+                        <tr>
+                            <th>Doing</th>
+                        </tr>
+                    </thead>
                     <tbody>
                         <?php foreach ($tableDoing as $item): ?>
                             <tr>
@@ -95,6 +105,11 @@ session_start()
                 </table>
 
                 <table class="table done">
+                    <thead>
+                        <tr>
+                            <th>Done</th>
+                        </tr>
+                    </thead>
                     <tbody>
                         <?php foreach ($tableDone as $item): ?>
                             <tr>
