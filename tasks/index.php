@@ -82,7 +82,7 @@ session_start()
                                         <p class="description"><?php echo $item['beschrijving']; ?></p>
                                         <p class="department"><?php echo $item['afdeling']; ?></p>
                                     </div>
-                                    <a href="create.php">fa-solid fa-pen"></i></a>
+                                    <a href="create.php"><i class="fa-solid fa-pen"></i></a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -109,7 +109,7 @@ session_start()
                                         <p class="description"><?php echo $item['beschrijving']; ?></p>
                                         <p class="department"><?php echo $item['afdeling']; ?></p>
                                     </div>
-                                    <a href="create.php">fa-solid fa-pen"></i></a>
+                                    <a href="create.php"><i class="fa-solid fa-pen"></i></a>
 
                                 </td>
                             </tr>
@@ -137,7 +137,7 @@ session_start()
                                         <p class="description"><?php echo $item['beschrijving']; ?></p>
                                         <p class="department"><?php echo $item['afdeling']; ?></p>
                                     </div>
-                                    <a href="create.php">fa-solid fa-pen"></i></a>
+                                    <a href="create.php"><i class="fa-solid fa-pen"></i></a>
 
                                 </td>
                             </tr>
