@@ -35,7 +35,6 @@
         ]);
 
         $table = $statement->fetch(PDO::FETCH_ASSOC);
-        #TODO: zorg dat ze de status 'todo' & 'doing and 'done' ook kunnen aanpassen
         ?>
 
         <div class="wrapper">
@@ -83,7 +82,18 @@
                     <input type="submit" value="Edit taak">
                 </div>
             </form>
+
+
+            <form action="../backend/tasksController.php" method="post">
+                <input type="hidden" name="action" value="delete">
+                <input type="hidden" name="id" value="<?php echo $table['id']; ?>">
+                <p><?php echo $table['title'] . " " . $table["id"]; ?></p>
+                <input type="submit" value="Verwijder taak!">
+            </form>
+
         </div>
+
+
     </main>
 
 

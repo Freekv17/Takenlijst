@@ -78,6 +78,16 @@ if ($action === "edit") {
     exit();
 }
 
-
 if ($action === "delete") {
+    $id = $_POST['id'];
+
+    $query = "DELETE FROM takenlijst WHERE id = :id AND user_id = :user_id";
+    $statement = $conn->prepare($query);
+    $statement->execute([
+        ":id" => $id,
+        ":user_id" => $userID,
+    ]);
+
+    header("location: ../tasks/index.php");
+    exit();
 }
