@@ -68,6 +68,17 @@
                         <option value="attracties" <?php if ($table['afdeling'] == 'attracties') echo 'selected'; ?>>attracties</option>
                     </select>
                 </div>
+
+
+                <div class="form-group">
+                    <label for="status">Status: </label>
+                    <select name="status" id="status">
+                        <option value="">- Kies een afdeling -</option>
+                        <option value="todo" <?php if ($table['status'] == 'todo') echo 'selected'; ?>>ToDo</option>
+                        <option value="doing" <?php if ($table['status'] == 'doing') echo 'selected'; ?>>Doing</option>
+                        <option value="done" <?php if ($table['status'] == 'done') echo 'selected'; ?>>Done</option>
+                    </select>
+                </div>
                 <div class="form-group">
                     <input type="submit" value="Edit taak">
                 </div>

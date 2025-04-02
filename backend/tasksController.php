@@ -57,8 +57,11 @@ if ($action === "edit") {
 
     $id = $_POST['id'];
 
+
+    $status = $_POST['status'];
+
     $query = "UPDATE takenlijst 
-              SET title = :title, beschrijving = :beschrijving, afdeling = :afdeling, deadline = :deadline 
+              SET title = :title, beschrijving = :beschrijving, afdeling = :afdeling, deadline = :deadline, status = :status
               WHERE user_id = :user_id";
 
     $statement = $conn->prepare($query);
@@ -67,6 +70,7 @@ if ($action === "edit") {
         ":beschrijving" => $beschrijving,
         ":afdeling" => $afdeling,
         ":deadline" => $deadline,
+        ":status" => $status,
         ":user_id" => $userID,
     ]);
 
