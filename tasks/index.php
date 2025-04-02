@@ -49,6 +49,8 @@ session_start()
     ]);
     $tableDone = $statementDone->fetchAll(PDO::FETCH_ASSOC);
 
+
+
     ?>
 
     <main class="tasksOverview">
@@ -72,8 +74,20 @@ session_start()
                             <tr>
                                 <td>
                                     <div class="deadline">
-                                        <p>Deadline </p>
-                                        <p><?php echo $item['deadline'] ? $item['deadline'] : ''; ?></p>
+                                        <p>Deadline&nbsp;</p>
+                                        <p><?php
+
+                                            $deadline = $item['deadline'];
+                                            $isOverdue = $deadline && $deadline < date('Y-m-d');
+
+                                            $title = '';
+                                            if ($isOverdue) {
+                                                $title = $item['title'] . " (Deadline verstreken !)";
+                                            } else {
+                                                $title = $item['title'];
+                                            }
+
+                                            echo $title; ?></p>
                                     </div>
 
                                     <div class="taskCard">
@@ -99,8 +113,20 @@ session_start()
                             <tr>
                                 <td>
                                     <div class="deadline">
-                                        <p>Deadline </p>
-                                        <p><?php echo $item['deadline'] ? $item['deadline'] : ''; ?></p>
+                                        <p>Deadline&nbsp;</p>
+                                        <p><?php
+
+                                            $deadline = $item['deadline'];
+                                            $isOverdue = $deadline && $deadline < date('Y-m-d');
+
+                                            $title = '';
+                                            if ($isOverdue) {
+                                                $title = $item['title'] . " (Deadline verstreken !)";
+                                            } else {
+                                                $title = $item['title'];
+                                            }
+
+                                            echo $title; ?></p>
                                     </div>
 
                                     <div class="taskCard">
@@ -126,8 +152,20 @@ session_start()
                             <tr>
                                 <td>
                                     <div class="deadline">
-                                        <p>Deadline </p>
-                                        <p><?php echo $item['deadline'] ? $item['deadline'] : ''; ?></p>
+                                        <p>Deadline&nbsp;</p>
+                                        <p><?php
+
+                                            $deadline = $item['deadline'];
+                                            $isOverdue = $deadline && $deadline < date('Y-m-d');
+
+                                            $title = '';
+                                            if ($isOverdue) {
+                                                $title = $item['title'] . " (Deadline verstreken !)";
+                                            } else {
+                                                $title = $item['title'];
+                                            }
+
+                                            echo $title; ?></p>
                                     </div>
 
                                     <div class="taskCard">
