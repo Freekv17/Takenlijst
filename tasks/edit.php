@@ -41,6 +41,7 @@
 
             <form action="../backend/tasksController.php" method="POST">
                 <input type="hidden" name="action" value="edit">
+                <input type="hidden" name="id" value="<?php echo $id ?>">
 
                 <div class="form-group">
                     <label for="titel">Titel: </label>

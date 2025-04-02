@@ -61,8 +61,9 @@ if ($action === "edit") {
     $status = $_POST['status'];
 
     $query = "UPDATE takenlijst 
-              SET title = :title, beschrijving = :beschrijving, afdeling = :afdeling, deadline = :deadline, status = :status
-              WHERE user_id = :user_id";
+    SET title = :title, beschrijving = :beschrijving, afdeling = :afdeling, deadline = :deadline, status = :status
+    WHERE user_id = :user_id AND id = :id";
+
 
     $statement = $conn->prepare($query);
     $statement->execute([
@@ -72,7 +73,9 @@ if ($action === "edit") {
         ":deadline" => $deadline,
         ":status" => $status,
         ":user_id" => $userID,
+        ":id" => $id,
     ]);
+
 
     header("location: ../tasks/index.php");
     exit();
