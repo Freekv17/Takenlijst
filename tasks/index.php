@@ -54,10 +54,31 @@ session_start()
     <main class="tasksOverview">
         <div class="wrapper">
             <div class="filterBar">
-                <a href="<?php echo $base_url ?>/tasks/create.php"><i class="fa-solid fa-circle-plus plus"></i>Maak
-                    nieuwe taak</a>
-                <a href="<?php echo $base_url ?>/tasks/done.php">Afgeronde taken<i
-                        class="fa-solid fa-circle-arrow-right arrow"></i></a>
+                <div class="links">
+                    <a href="<?php echo $base_url ?>/tasks/create.php"><i class="fa-solid fa-circle-plus plus"></i>Maak
+                        nieuwe taak</a>
+                    <a href="<?php echo $base_url ?>/tasks/done.php">Afgeronde taken<i
+                            class="fa-solid fa-circle-arrow-right arrow"></i></a>
+                </div>
+                <div class="filters">
+                    <h3>Filter</h3>
+                    <div class="afdeling filter">
+                        <label for="afdeling">Afdeling: </label>
+                        <select name="department" id="department">
+                            <option value="">- Kies een afdeling -</option>
+                            <option value="personeel">personeel</option>
+                            <option value="horeca">horeca</option>
+                            <option value="techniek">techniek</option>
+                            <option value="inkoop">inkoop</option>
+                            <option value="klantenservice">klantenservice</option>
+                            <option value="groen">groen</option>
+                            <option value="attracties">attracties</option>
+                        </select>
+                    </div>
+                    <div class="deadline filter">
+
+                    </div>
+                </div>
             </div>
 
             <div class="tables">

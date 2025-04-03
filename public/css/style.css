@@ -198,15 +198,27 @@ input {
     padding-bottom: 5%;
 }
 
-.filterBar {
-    margin-bottom: 20px;
+.filterBar{
+    width: 100%;
+}
+
+.filters{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: #1D3354 2px solid;
+    padding-bottom: 5px;
+}
+
+.links {
+    margin-bottom: 35px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
 }
 
-.filterBar a {
+.links a {
     background-color: #24ac64;
     text-decoration: none;
     font-weight: 400;
@@ -222,15 +234,15 @@ input {
     align-items: center;
 }
 
-.filterBar a:hover{
+.links a:hover{
     background-color: #2c84ec;
 }
-.filterBar .plus {
+.links .plus {
     color: white;
     margin-right: 10px;
 }
 
-.filterBar .arrow {
+.links .arrow {
     color: white;
     margin-left: 10px;
 }
