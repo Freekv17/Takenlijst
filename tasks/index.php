@@ -2,7 +2,7 @@
 <?php require_once("../config/config.php") ?>
 <?php
 session_start()
-    ?>
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -49,6 +49,8 @@ session_start()
     ]);
     $tableDone = $statementDone->fetchAll(PDO::FETCH_ASSOC);
 
+
+
     ?>
 
     <main class="tasksOverview">
@@ -93,8 +95,20 @@ session_start()
                             <tr>
                                 <td>
                                     <div class="deadline">
-                                        <p>Deadline </p>
-                                        <p><?php echo $item['deadline'] ? $item['deadline'] : ''; ?></p>
+                                        <p>Deadline&nbsp;</p>
+                                        <p><?php
+
+                                            $deadline = $item['deadline'];
+                                            $isOverdue = $deadline && $deadline < date('Y-m-d');
+
+                                            $title = '';
+                                            if ($isOverdue) {
+                                                $title = $item['title'] . " (Deadline verstreken !)";
+                                            } else {
+                                                $title = $item['title'];
+                                            }
+
+                                            echo $title; ?></p>
                                     </div>
 
                                     <div class="taskCard">
@@ -102,7 +116,7 @@ session_start()
                                         <p class="description"><?php echo $item['beschrijving']; ?></p>
                                         <p class="department"><?php echo $item['afdeling']; ?></p>
                                     </div>
-                                    <a href="create.php"><i class="fa-solid fa-pen"></i></a>
+                                    <a href="./edit.php?id=<?php echo $item['id']; ?>"><i class="fa-solid fa-pen"></i></a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -120,8 +134,20 @@ session_start()
                             <tr>
                                 <td>
                                     <div class="deadline">
-                                        <p>Deadline </p>
-                                        <p><?php echo $item['deadline'] ? $item['deadline'] : ''; ?></p>
+                                        <p>Deadline&nbsp;</p>
+                                        <p><?php
+
+                                            $deadline = $item['deadline'];
+                                            $isOverdue = $deadline && $deadline < date('Y-m-d');
+
+                                            $title = '';
+                                            if ($isOverdue) {
+                                                $title = $item['title'] . " (Deadline verstreken !)";
+                                            } else {
+                                                $title = $item['title'];
+                                            }
+
+                                            echo $title; ?></p>
                                     </div>
 
                                     <div class="taskCard">
@@ -129,8 +155,7 @@ session_start()
                                         <p class="description"><?php echo $item['beschrijving']; ?></p>
                                         <p class="department"><?php echo $item['afdeling']; ?></p>
                                     </div>
-                                    <a href="create.php"><i class="fa-solid fa-pen"></i></a>
-
+                                    <a href="./edit.php?id=<?php echo $item['id']; ?>"><i class="fa-solid fa-pen"></i></a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -148,8 +173,20 @@ session_start()
                             <tr>
                                 <td>
                                     <div class="deadline">
-                                        <p>Deadline </p>
-                                        <p><?php echo $item['deadline'] ? $item['deadline'] : ''; ?></p>
+                                        <p>Deadline&nbsp;</p>
+                                        <p><?php
+
+                                            $deadline = $item['deadline'];
+                                            $isOverdue = $deadline && $deadline < date('Y-m-d');
+
+                                            $title = '';
+                                            if ($isOverdue) {
+                                                $title = $item['title'] . " (Deadline verstreken !)";
+                                            } else {
+                                                $title = $item['title'];
+                                            }
+
+                                            echo $title; ?></p>
                                     </div>
 
                                     <div class="taskCard">
@@ -157,7 +194,7 @@ session_start()
                                         <p class="description"><?php echo $item['beschrijving']; ?></p>
                                         <p class="department"><?php echo $item['afdeling']; ?></p>
                                     </div>
-                                    <a href="create.php"><i class="fa-solid fa-pen"></i></a>
+                                    <a href="./edit.php?id=<?php echo $item['id']; ?>"><i class="fa-solid fa-pen"></i></a>
 
                                 </td>
                             </tr>
