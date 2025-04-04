@@ -186,7 +186,7 @@ input {
     min-height: 70%;
     background-image: url("../img/backgroundTasks.jpg");
     background-position: top;
-    background-size: contain;
+    background-size: cover;
 }
 
 .tasksOverview .wrapper {
