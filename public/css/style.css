@@ -5,6 +5,7 @@
 
 .wrapper {
     width: 968px;
+    height: 100%;
     margin: 0 auto;
 }
 
@@ -34,10 +35,6 @@ header .wrapper {
     flex-direction: row;
 }
 
-header img {
-    width: 300px;
-}
-
 header a {
     color: white;
     text-decoration: none;
@@ -51,22 +48,18 @@ nav a:hover {
     color: #2c84ec;
 }
 
-h1,
-h1:hover {
+h1 {
     font-size: 35px;
     color: #2c84ec;
 }
 
 
-span,
-span:hover {
+span {
     color: #24ac64;
 }
 
-/*index.php styling*/
-
 main {
-    height: 70%;
+    min-height: 60%;
 }
 
 main .wrapper {
@@ -76,6 +69,11 @@ main .wrapper {
     justify-content: center;
 }
 
+.wrapper.index {
+    margin-top: 100px;
+}
+
+/*index.php styling*/
 .landingPageInfo {
     font-family: "Roboto Mono", monospace;
     color: rgb(46, 46, 46);
@@ -183,10 +181,10 @@ input {
 
 /*index tasks styling*/
 .tasksOverview {
-    height: fit-content;
+    min-height: 70%;
     background-image: url("../img/backgroundTasks.jpg");
-    background-position: center;
-    background-size: cover;
+    background-position: top;
+    background-size: contain;
 }
 
 .tasksOverview .wrapper {
@@ -198,16 +196,29 @@ input {
     padding-bottom: 5%;
 }
 
-.filterBar{
+.bar {
     width: 100%;
 }
 
-.filters{
+.filterBar {
+    color: white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    background-color: #1D3354;
+}
+
+.filterBar h3 {
+    margin-right: 10px;
+    padding: 2px;
+}
+
+.filterBar form {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    border-bottom: #1D3354 2px solid;
-    padding-bottom: 5px;
+    justify-content: space-between;
+    width: 25%;
 }
 
 .links {
@@ -234,9 +245,10 @@ input {
     align-items: center;
 }
 
-.links a:hover{
+.links a:hover {
     background-color: #2c84ec;
 }
+
 .links .plus {
     color: white;
     margin-right: 10px;
@@ -273,12 +285,26 @@ tbody {
     height: 100%;
 }
 
-.deadline {
+.dueDate {
     padding: 2px;
-    background-color: #24ac64;
     border: 4px solid rgba(255, 255, 255, 0.125);
     display: flex;
     justify-content: space-between;
+}
+
+.onTime {
+    background-color: #2c84ec;
+    color: white;
+}
+
+.overdue {
+    background-color: red;
+    color: white;
+}
+
+.completed {
+    background-color: #24ac64;
+    color: white;
 }
 
 .taskCard {
@@ -294,17 +320,51 @@ tbody {
     padding-bottom: 10px;
 }
 
-p.department {
-    background-color: #2c84ec;
+p.description {
+    padding-bottom: 10px;
+}
+
+p.department, .tags a {
+    background-color: #226d89;
     width: fit-content;
     border-radius: 10px;
     padding: 5px;
     color: white;
 }
 
-p.description {
-    padding-bottom: 10px;
+.tags {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
+
+.tags i {
+    color: white;
+}
+
+.tags a {
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+/*create.php & edit.php styling*/
+
+form.create, form.edit {
+    width: 60%;
+    padding: 5px;
+    backdrop-filter: blur(9px) saturate(180%);
+    -webkit-backdrop-filter: blur(9px) saturate(180%);
+    background-color: rgba(221, 217, 217, 0.541);
+    border-radius: 0 0 12px 12px;
+    border: 4px solid rgba(255, 255, 255, 0.125);
+}
+
+form.create h2, form.edit h2 {
+    text-transform: uppercase;
+    color: #2c84ec;
+    padding: 20px;
+}
+
 
 /*footer styling*/
 
@@ -345,4 +405,106 @@ footer img {
     background-color: #226d89;
     border-radius: 4px;
     color: white;
+}
+
+/*media queries*/
+@media (max-width:768px) {
+    .wrapper {
+        width: 668px;
+        height: 100%;
+        margin: 0 auto;
+    }
+
+    header {
+        height: 15%;
+        border-bottom: 5px solid #24ac64;
+        box-shadow: 0 .25rem .5rem 0 rgba(0, 166, 255, 0.05);
+        background-color: #1D3354;
+        font-family: "Rubik", sans-serif;
+    }
+
+    header .wrapper {
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+    }
+
+    header a {
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        padding-right: 15px;
+    }
+
+    nav a:hover {
+        text-decoration: underline;
+        text-underline-offset: 5px;
+        color: #2c84ec;
+    }
+
+    h1 {
+        font-size: 35px;
+        color: #2c84ec;
+    }
+
+    span {
+        color: #24ac64;
+    }
+
+    .landingPageInfo {
+        font-size: smaller;
+    }
+
+    footer h2 {
+        font-size: medium;
+    }
+
+    .extraInfo {
+        width: 70%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        color: white;
+        font-size: 15px;
+
+    }
+
+    .filterBar {
+        align-items: center;
+        text-align: center;
+    }
+
+    .filterBar form {
+        width: 80%;
+    }
+
+    .filterBar select,
+    .filterBar button {
+        width: 100%;
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+
+    .tables {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .table {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+
+    th {
+        font-size: 20px;
+    }
+
+    td {
+        font-size: 12px;
+        text-align: left;
+    }
 }

@@ -20,7 +20,7 @@
 
     <?php require_once "../public/resources/views/components/header.php"; ?>
 
-    <main>
+    <main class="tasksOverview">
 
 
         <?php
@@ -39,17 +39,17 @@
 
         <div class="wrapper">
 
-            <form action="../backend/tasksController.php" method="POST">
-                <input type="hidden" name="action" value="edit">
-                <input type="hidden" name="id" value="<?php echo $id ?>">
-
+            <form class="edit"action="../backend/tasksController.php" method="POST">
+                <h2>Bewerk taak</h2>
+            <input type="hidden" name="action" value="edit">
                 <div class="form-group">
                     <label for="titel">Titel: </label>
                     <input type="text" name="title" id="title" value="<?php echo $table['title'] ?>">
                 </div>
                 <div class="form-group">
                     <label for="beschrijving">Beschrijving: </label>
-                    <input type="text" name="beschrijving" id="beschrijving" value="<?php echo $table['beschrijving'] ?>">
+                    <input type="text" name="beschrijving" id="beschrijving"
+                        value="<?php echo $table['beschrijving'] ?>">
                 </div>
                 <div class=" form-group">
                     <label for="deadline">Deadline:</label>
@@ -59,13 +59,25 @@
                     <label for="afdeling">Afdeling: </label>
                     <select name="department" id="department">
                         <option value="">- Kies een afdeling -</option>
-                        <option value="personeel" <?php if ($table['afdeling'] == 'personeel') echo 'selected'; ?>>personeel</option>
-                        <option value="horeca" <?php if ($table['afdeling'] == 'horeca') echo 'selected'; ?>>horeca</option>
-                        <option value="techniek" <?php if ($table['afdeling'] == 'techniek') echo 'selected'; ?>>techniek</option>
-                        <option value="inkoop" <?php if ($table['afdeling'] == 'inkoop') echo 'selected'; ?>>inkoop</option>
-                        <option value="klantenservice" <?php if ($table['afdeling'] == 'klantenservice') echo 'selected'; ?>>klantenservice</option>
-                        <option value="groen" <?php if ($table['afdeling'] == 'groen') echo 'selected'; ?>>groen</option>
-                        <option value="attracties" <?php if ($table['afdeling'] == 'attracties') echo 'selected'; ?>>attracties</option>
+                        <option value="personeel" <?php if ($table['afdeling'] == 'personeel')
+                            echo 'selected'; ?>>
+                            personeel</option>
+                        <option value="horeca" <?php if ($table['afdeling'] == 'horeca')
+                            echo 'selected'; ?>>horeca
+                        </option>
+                        <option value="techniek" <?php if ($table['afdeling'] == 'techniek')
+                            echo 'selected'; ?>>techniek
+                        </option>
+                        <option value="inkoop" <?php if ($table['afdeling'] == 'inkoop')
+                            echo 'selected'; ?>>inkoop
+                        </option>
+                        <option value="klantenservice" <?php if ($table['afdeling'] == 'klantenservice')
+                            echo 'selected'; ?>>klantenservice</option>
+                        <option value="groen" <?php if ($table['afdeling'] == 'groen')
+                            echo 'selected'; ?>>groen</option>
+                        <option value="attracties" <?php if ($table['afdeling'] == 'attracties')
+                            echo 'selected'; ?>>
+                            attracties</option>
                     </select>
                 </div>
 
@@ -74,24 +86,23 @@
                     <label for="status">Status: </label>
                     <select name="status" id="status">
                         <option value="">- Kies een afdeling -</option>
-                        <option value="todo" <?php if ($table['status'] == 'todo') echo 'selected'; ?>>ToDo</option>
-                        <option value="doing" <?php if ($table['status'] == 'doing') echo 'selected'; ?>>Doing</option>
-                        <option value="done" <?php if ($table['status'] == 'done') echo 'selected'; ?>>Done</option>
+                        <option value="todo" <?php if ($table['status'] == 'todo')
+                            echo 'selected'; ?>>ToDo</option>
+                        <option value="doing" <?php if ($table['status'] == 'doing')
+                            echo 'selected'; ?>>Doing</option>
+                        <option value="done" <?php if ($table['status'] == 'done')
+                            echo 'selected'; ?>>Done</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <input type="submit" value="Edit taak">
                 </div>
+                <div class="form-group delete">
+                    <input type="hidden" name="action" value="delete">
+                    <input type="hidden" name="id" value="<?php echo $table['id']; ?>">
+                    <input type="submit" value="Verwijder taak!">
+                </div>
             </form>
-
-
-            <form action="../backend/tasksController.php" method="post">
-                <input type="hidden" name="action" value="delete">
-                <input type="hidden" name="id" value="<?php echo $table['id']; ?>">
-                <p><?php echo $table['title'] . " " . $table["id"]; ?></p>
-                <input type="submit" value="Verwijder taak!">
-            </form>
-
         </div>
 
 

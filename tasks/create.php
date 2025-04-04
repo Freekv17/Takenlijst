@@ -20,12 +20,12 @@
 
     <?php require_once "../public/resources/views/components/header.php"; ?>
 
-    <main>
-
+    <main class="tasksOverview">
         <div class="wrapper">
-            <form action="../backend/tasksController.php" method="POST">
-                <input type="hidden" name="action" value="create">
 
+            <form class="create" action="../backend/tasksController.php" method="POST">
+                <h2>Nieuwe taak</h2>
+                <input type="hidden" name="action" value="create">
                 <div class="form-group">
                     <label for="titel">Titel: </label>
                     <input type="text" name="title" id="title">

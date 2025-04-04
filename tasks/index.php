@@ -1,8 +1,6 @@
 <?php require_once("../config/conn.php") ?>
 <?php require_once("../config/config.php") ?>
-<?php
-session_start()
-?>
+<?php session_start() ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,50 +21,49 @@ session_start()
     <?php require_once "../public/resources/views/components/header.php" ?>
 
     <?php
-
     $userID = $_SESSION['user_id'];
+
+    $selectedDepartment = isset($_GET['department']) ? $_GET['department'] : '';
 
     $queryTodo = "SELECT * FROM takenlijst WHERE status = 'todo' AND user_id = :user_id";
     $queryDoing = "SELECT * FROM takenlijst WHERE status = 'doing' AND user_id = :user_id";
     $queryDone = "SELECT * FROM takenlijst WHERE status = 'done' AND user_id = :user_id";
 
-    $statementTodo = $conn->prepare($queryTodo);
-    $statementTodo->execute([
-        ':user_id' => $userID
-    ]);
+    $filter = [':user_id' => $userID];
+    if (!empty($selectedDepartment)) {
+        $queryTodo .= " AND afdeling = :afdeling";
+        $queryDoing .= " AND afdeling = :afdeling";
+        $queryDone .= " AND afdeling = :afdeling";
 
+        $filter[':afdeling'] = $selectedDepartment;
+    }
+
+    $statementTodo = $conn->prepare($queryTodo);
+    $statementTodo->execute($filter);
     $tableTodo = $statementTodo->fetchAll(PDO::FETCH_ASSOC);
 
     $statementDoing = $conn->prepare($queryDoing);
-    $statementDoing->execute([
-        ':user_id' => $userID
-    ]);
+    $statementDoing->execute($filter);
     $tableDoing = $statementDoing->fetchAll(PDO::FETCH_ASSOC);
 
     $statementDone = $conn->prepare($queryDone);
-    $statementDone->execute([
-        ':user_id' => $userID
-    ]);
+    $statementDone->execute($filter);
     $tableDone = $statementDone->fetchAll(PDO::FETCH_ASSOC);
-
-
-
     ?>
 
     <main class="tasksOverview">
         <div class="wrapper">
-            <div class="filterBar">
+            <div class="bar">
                 <div class="links">
                     <a href="<?php echo $base_url ?>/tasks/create.php"><i class="fa-solid fa-circle-plus plus"></i>Maak
                         nieuwe taak</a>
                     <a href="<?php echo $base_url ?>/tasks/done.php">Afgeronde taken<i
                             class="fa-solid fa-circle-arrow-right arrow"></i></a>
                 </div>
-                <div class="filters">
+                <div class="filterBar">
                     <h3>Filter</h3>
-                    <div class="afdeling filter">
-                        <label for="afdeling">Afdeling: </label>
-                        <select name="department" id="department">
+                    <form method="GET" action="">
+                        <select name="department" id="department" onchange="this.form.submit()">
                             <option value="">- Kies een afdeling -</option>
                             <option value="personeel">personeel</option>
                             <option value="horeca">horeca</option>
@@ -76,10 +73,8 @@ session_start()
                             <option value="groen">groen</option>
                             <option value="attracties">attracties</option>
                         </select>
-                    </div>
-                    <div class="deadline filter">
-
-                    </div>
+                        <button type="submit" name="department" value="">Reset Filter</button>
+                    </form>
                 </div>
             </div>
 
@@ -94,29 +89,33 @@ session_start()
                         <?php foreach ($tableTodo as $item): ?>
                             <tr>
                                 <td>
-                                    <div class="deadline">
-                                        <p>Deadline&nbsp;</p>
-                                        <p><?php
+                                    <?php
+                                    $deadline = $item['deadline'];
+                                    $isOverdue = $deadline && $deadline < date('Y-m-d');
+                                    ?>
 
-                                            $deadline = $item['deadline'];
-                                            $isOverdue = $deadline && $deadline < date('Y-m-d');
-
-                                            $title = '';
-                                            if ($isOverdue) {
-                                                $title = $item['title'] . " (Deadline verstreken !)";
-                                            } else {
-                                                $title = $item['title'];
-                                            }
-
-                                            echo $title; ?></p>
-                                    </div>
+                                    <?php if ($isOverdue): ?>
+                                        <div class="dueDate overdue">
+                                            <p>Deadline gemist!</p>
+                                            <p><?php echo $deadline; ?></p>
+                                        </div>
+                                    <?php else: ?>
+                                        <div class="dueDate onTime">
+                                            <p>Deadline:</p>
+                                            <?php echo $deadline; ?>
+                                        </div>
+                                    <?php endif; ?>
 
                                     <div class="taskCard">
                                         <h2><?php echo $item['title']; ?></h2>
                                         <p class="description"><?php echo $item['beschrijving']; ?></p>
-                                        <p class="department"><?php echo $item['afdeling']; ?></p>
+
+                                        <div class="tags">
+                                            <p class="department"><?php echo $item['afdeling']; ?></p>
+                                            <a href="./edit.php?id=<?php echo $item['id']; ?>">Bewerk <i
+                                                    class="fa-solid fa-pen"></i></a>
+                                        </div>
                                     </div>
-                                    <a href="./edit.php?id=<?php echo $item['id']; ?>"><i class="fa-solid fa-pen"></i></a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -133,29 +132,34 @@ session_start()
                         <?php foreach ($tableDoing as $item): ?>
                             <tr>
                                 <td>
-                                    <div class="deadline">
-                                        <p>Deadline&nbsp;</p>
-                                        <p><?php
+                                    <?php
+                                    $deadline = $item['deadline'];
+                                    $isOverdue = $deadline && $deadline < date('Y-m-d');
+                                    ?>
 
-                                            $deadline = $item['deadline'];
-                                            $isOverdue = $deadline && $deadline < date('Y-m-d');
+                                    <?php if ($isOverdue): ?>
+                                        <div class="dueDate overdue">
+                                            <p>Deadline gemist!</p>
+                                            <p><?php echo $deadline; ?></p>
+                                        </div>
+                                    <?php else: ?>
+                                        <div class="dueDate onTime">
+                                            <p>Deadline:</p>
+                                            <?php echo $deadline; ?>
 
-                                            $title = '';
-                                            if ($isOverdue) {
-                                                $title = $item['title'] . " (Deadline verstreken !)";
-                                            } else {
-                                                $title = $item['title'];
-                                            }
-
-                                            echo $title; ?></p>
-                                    </div>
+                                        </div>
+                                    <?php endif; ?>
 
                                     <div class="taskCard">
                                         <h2><?php echo $item['title']; ?></h2>
                                         <p class="description"><?php echo $item['beschrijving']; ?></p>
-                                        <p class="department"><?php echo $item['afdeling']; ?></p>
+
+                                        <div class="tags">
+                                            <p class="department"><?php echo $item['afdeling']; ?></p>
+                                            <a href="./edit.php?id=<?php echo $item['id']; ?>">Bewerk <i
+                                                    class="fa-solid fa-pen"></i></a>
+                                        </div>
                                     </div>
-                                    <a href="./edit.php?id=<?php echo $item['id']; ?>"><i class="fa-solid fa-pen"></i></a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -172,30 +176,19 @@ session_start()
                         <?php foreach ($tableDone as $item): ?>
                             <tr>
                                 <td>
-                                    <div class="deadline">
-                                        <p>Deadline&nbsp;</p>
-                                        <p><?php
-
-                                            $deadline = $item['deadline'];
-                                            $isOverdue = $deadline && $deadline < date('Y-m-d');
-
-                                            $title = '';
-                                            if ($isOverdue) {
-                                                $title = $item['title'] . " (Deadline verstreken !)";
-                                            } else {
-                                                $title = $item['title'];
-                                            }
-
-                                            echo $title; ?></p>
+                                    <div class="dueDate completed">
+                                        <p>Deadline gehaald!</p>
                                     </div>
-
                                     <div class="taskCard">
                                         <h2><?php echo $item['title']; ?></h2>
                                         <p class="description"><?php echo $item['beschrijving']; ?></p>
-                                        <p class="department"><?php echo $item['afdeling']; ?></p>
-                                    </div>
-                                    <a href="./edit.php?id=<?php echo $item['id']; ?>"><i class="fa-solid fa-pen"></i></a>
 
+                                        <div class="tags">
+                                            <p class="department"><?php echo $item['afdeling']; ?></p>
+                                            <a href="./edit.php?id=<?php echo $item['id']; ?>">Bewerk <i
+                                                    class="fa-solid fa-pen"></i></a>
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
